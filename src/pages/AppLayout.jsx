@@ -1,6 +1,8 @@
-import { NavLink, Outlet } from "react-router-dom";
 import styles from "../components/appLayout/appLayout.module.css";
 import LogoButton from "../components/general/LogoButton";
+import CityCountryNavButtons from "../components/appLayout/CityCountryNavButtons";
+import SideBarFooter from "../components/appLayout/SideBarFooter";
+import ListContent from "../components/appLayout/ListContent";
 
 export default function AppLayout() {
   return (
@@ -12,24 +14,11 @@ export default function AppLayout() {
         <section className={styles.sideBar}>
           <LogoButton linkTo={"/"} />
 
-          <div className={styles.divCityCountryButtons}>
-            <ul>
-              <li className={styles.buttonCities}>
-                <NavLink to="cities">CITIES</NavLink>
-              </li>
-              <li className={styles.buttonCountries}>
-                <NavLink to="countries">COUNTRIES</NavLink>
-              </li>
-            </ul>
-          </div>
+          <CityCountryNavButtons />
 
-          <div className={styles.listCities}>
-            <Outlet />
-          </div>
+          <ListContent />
 
-          <footer className={styles.footerWorldWise}>
-            &copy; Copyright {new Date().getFullYear()} by WorldWise Inc
-          </footer>
+          <SideBarFooter />
         </section>
         <section className={styles.map}>map</section>
       </div>
