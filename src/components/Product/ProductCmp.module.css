@@ -1,0 +1,32 @@
+.sectionImgText {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+
+  margin-top: 150px;
+
+  width: 800px;
+  height: 360px;
+  display: flex;
+  gap: 70px;
+
+  display: flex;
+  background-color: rgba(255, 228, 196, 0);
+}
+.allAllText {
+  width: 400px;
+  color: white;
+  font-weight: 300;
+  font-size: 17px;
+}
+
+.allAllText h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0px;
+  margin-top: 20px;
+}
+.smallText {
+  line-height: 25px;
+}

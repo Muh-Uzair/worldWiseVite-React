@@ -1,0 +1,26 @@
+.sectionImgText {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+
+  margin-top: 150px;
+
+  width: 800px;
+  height: 360px;
+  display: flex;
+  gap: 70px;
+}
+.divText {
+  width: 350px;
+  color: white;
+  font-weight: 300;
+  font-size: 17px;
+}
+.divText h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+}
+.smallText {
+  line-height: 25px;
+}

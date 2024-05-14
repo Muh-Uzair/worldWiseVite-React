@@ -1,0 +1,85 @@
+.divSideBarMap {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 550px 1fr;
+}
+.sideBar {
+  width: 100%;
+  height: 100%;
+  background-color: #2d3439;
+
+  padding-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divCityCountryButtons {
+  background-color: #42484d;
+  margin-top: 35px;
+  width: 150px;
+  height: 28px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+}
+.divCityCountryButtons ul {
+  display: flex;
+  align-items: center;
+
+  color: white;
+  font-size: 12px;
+  list-style: none;
+  margin: 0px;
+  margin-left: -40px;
+}
+.divCityCountryButtons ul li {
+  margin: 0px;
+  transition: all ease 0.2s;
+}
+.buttonCities {
+  width: 50px;
+  height: 28px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonCountries {
+  width: 100px;
+  height: 28px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divSideBarMap :global(.active) {
+  background-color: #242a2e;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.listCities {
+  background-color: bisque;
+  width: 450px;
+  height: 80%;
+}
+.footerWorldWise {
+  color: rgb(194, 194, 194);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(205, 235, 255);
+}
