@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import styles from "../appLayout/appLayout.module.css";
+import styles from "../appLayout/CitiesList.module.css";
+import { Link } from "react-router-dom";
 
 CitiesList.propTypes = {
   citiesData: PropTypes.array.isRequired,
@@ -28,11 +29,15 @@ export default function CitiesList({ citiesData, isLoading }) {
         <ul className={styles.CitiesListUl}>
           {citiesData?.map((val, i) => (
             <li key={i}>
-              <span className={styles.countryEmoji}>{val.emoji}</span>
-              <h3 className={styles.cityName}>{val.cityName}</h3>
-              <time className={styles.visitDate}>{formatDate(val.date)}</time>
-
-              <button className={styles.closeButton}>&times;</button>
+              <Link
+                className={styles.CitiesListLi}
+                to={`${val.id}?lat=${val.position.lat}&lng=${val.position.lng}`}
+              >
+                <span className={styles.countryEmoji}>{val.emoji}</span>
+                <h3 className={styles.cityName}>{val.cityName}</h3>
+                <time className={styles.visitDate}>{formatDate(val.date)}</time>
+                <button className={styles.closeButton}>&times;</button>
+              </Link>
             </li>
           ))}
         </ul>

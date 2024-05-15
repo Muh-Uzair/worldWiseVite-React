@@ -3,6 +3,7 @@ import LogoButton from "../components/general/LogoButton";
 import CityCountryNavButtons from "../components/appLayout/CityCountryNavButtons";
 import SideBarFooter from "../components/appLayout/SideBarFooter";
 import ListContent from "../components/appLayout/ListContent";
+import Map from "../components/appLayout/Map/Map";
 
 export default function AppLayout() {
   return (
@@ -20,7 +21,10 @@ export default function AppLayout() {
 
           <SideBarFooter />
         </section>
-        <section className={styles.map}>map</section>
+
+        <section className={styles.map}>
+          <Map />
+        </section>
       </div>
     </main>
   );

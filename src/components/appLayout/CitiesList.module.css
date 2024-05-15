@@ -1,0 +1,64 @@
+.CitiesListUl {
+  background-color: rgba(0, 255, 255, 0);
+  list-style: none;
+  margin-left: -39px;
+}
+.CitiesListLi {
+  background-color: #495056;
+  height: 50px;
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 5px solid #00c46a;
+
+  display: grid;
+  grid-template-columns: 45px 1fr 150px 50px;
+
+  padding-left: 20px;
+  cursor: pointer;
+}
+.countryEmoji {
+  font-size: 25px;
+  margin-top: 5px;
+}
+.cityName {
+  margin-top: 10px;
+  font-size: 21px;
+  font-weight: 500;
+}
+.visitDate {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 100;
+}
+.closeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #242a2e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.closeButton:hover {
+  background-color: #ffb545;
+  color: #242a2e;
+}
+.closeButton:active {
+  background-color: #242a2e;
+  color: white;
+}
+
+.imgSpinner {
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 10%;
+}

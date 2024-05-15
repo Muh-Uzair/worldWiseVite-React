@@ -8,6 +8,7 @@ import CitiesList from "./components/appLayout/CitiesList";
 import CountryList from "./components/appLayout/CountryList";
 import { URL } from "../api-related/apiRelated";
 import { useEffect, useState } from "react";
+import City from "./components/appLayout/City";
 
 export default function App() {
   const [citiesData, set_citiesData] = useState([]);
@@ -31,7 +32,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Homepage />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="appLayout" element={<AppLayout />}>
           <Route
             index
@@ -44,7 +45,10 @@ export default function App() {
             element={
               <CitiesList citiesData={citiesData} isLoading={isLoading} />
             }
-          />
+          ></Route>
+
+          <Route path="cities/:id" element={<City />} />
+
           <Route
             path="countries"
             element={
