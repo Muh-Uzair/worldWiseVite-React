@@ -1,13 +1,19 @@
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function Map() {
   const [searchParams, set_searchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
 
   return (
-    <div>
+    <div
+      onClick={() => {
+        console.log(`map clicked`);
+        navigate("form");
+      }}
+    >
       Position
       {`lat=${lat}`}
       {`lng=${lng}`}

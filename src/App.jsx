@@ -9,6 +9,7 @@ import CountryList from "./components/appLayout/CountryList";
 import { URL } from "../api-related/apiRelated";
 import { useEffect, useState } from "react";
 import City from "./components/appLayout/City";
+import Form from "./components/appLayout/Form";
 
 export default function App() {
   const [citiesData, set_citiesData] = useState([]);
@@ -55,6 +56,8 @@ export default function App() {
               <CountryList citiesData={citiesData} isLoading={isLoading} />
             }
           />
+
+          <Route path="form" element={<Form />} />
         </Route>
         <Route path="Pricing" element={<Pricing />} />
         <Route path="Product" element={<Product />} />
