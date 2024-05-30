@@ -1,11 +1,7 @@
-import PropTypes from "prop-types";
 import styles from "../appLayout/CitiesList.module.css";
 import { Link } from "react-router-dom";
-
-CitiesList.propTypes = {
-  citiesData: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-};
+import { useContext } from "react";
+import { CitiesContext } from "../../../ContextApp";
 
 function formatDate(inputDate) {
   const date = new Date(inputDate);
@@ -21,7 +17,8 @@ function formatDate(inputDate) {
   return `(${formattedDateString})`;
 }
 
-export default function CitiesList({ citiesData, isLoading }) {
+export default function CitiesList() {
+  const { citiesData, isLoading } = useContext(CitiesContext);
   return (
     <>
       {isLoading && <img className={styles.imgSpinner} src="Spinner.gif" />}

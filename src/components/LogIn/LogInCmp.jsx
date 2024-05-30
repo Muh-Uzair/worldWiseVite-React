@@ -14,7 +14,6 @@ export default function LogInCmp() {
         type="password"
         placeholder="Password"
         style={{ marginBottom: "25px", letterSpacing: "3px" }}
-        value={"password"}
       />
       <br />
 

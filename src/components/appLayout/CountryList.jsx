@@ -1,12 +1,9 @@
-import PropTypes from "prop-types";
 import styles from "../appLayout/CountryList.module.css";
+import { CitiesContext } from "../../../ContextApp";
+import { useContext } from "react";
 
-CountryList.propTypes = {
-  citiesData: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-};
-
-export default function CountryList({ citiesData, isLoading }) {
+export default function CountryList() {
+  const { citiesData, isLoading } = useContext(CitiesContext);
   const countries = citiesData.reduce((accumulator, currentValue) => {
     if (!accumulator.some((item) => item.country === currentValue.country)) {
       accumulator.push({

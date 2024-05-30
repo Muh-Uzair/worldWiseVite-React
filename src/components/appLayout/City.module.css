@@ -1,3 +1,14 @@
 .divCity {
-  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 20px;
+  color: rgb(255, 255, 255);
+  width: 95%;
+  height: 400px;
+  background-color: #42484d;
+  border-radius: 8px;
+}
+.divCity p {
+  margin: 0px;
 }
