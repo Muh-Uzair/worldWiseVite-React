@@ -3,81 +3,85 @@ import styles from "./City.module.css";
 import { useContext, useEffect } from "react";
 import { URL } from "../../../api-related/apiRelated";
 import { CitiesContext } from "../../../ContextApp";
+import BackButton from "../general/BackButton";
 
-// function formatDate(inputDate) {
-//   const date = new Date(inputDate);
-//   const options = { day: "2-digit", month: "long", year: "numeric" };
-//   const formattedDate = date.toLocaleDateString("en-US", options);
-//   let formattedDateString = formattedDate.replace(",", "");
-//   const lastIndex = formattedDateString.lastIndexOf(" ");
-//   formattedDateString =
-//     formattedDateString.slice(0, lastIndex) +
-//     ", " +
-//     formattedDateString.slice(lastIndex + 1);
+function formatDate(timeSt) {
+  const date = new Date(timeSt);
+  const daysArr = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  const monthsArr = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-//   return `(${formattedDateString})`;
-// }
-
-function formatDate(dateString) {
-  // Parse the input date string to a Date object
-  const date = new Date(dateString);
-
-  // Define the options for formatting the date
-  const options = {
-    weekday: "long",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  };
-
-  // Create a new Intl.DateTimeFormat object with the specified options
-  const formatter = new Intl.DateTimeFormat("en-US", options);
-
-  // Format the date and return the formatted string
-  return formatter.format(date);
+  return `${daysArr[date.getDay()]}, ${
+    monthsArr[date.getMonth()]
+  } ${date.getDate()}, ${date.getFullYear()}`;
 }
 
 export default function City() {
-  const { currCity, setCurrCity } = useContext(CitiesContext);
+  const { currCity, setCurrCity, isLoading, set_isLoading } =
+    useContext(CitiesContext);
   const paramObj = useParams();
 
-  // const [searchParams, set_searchParams] = useSearchParams();
-
-  // const lat = searchParams.get("lat");
-  // const lng = searchParams.get("lng");
-
-  useEffect(
-    function () {
-      async function getCityData() {
-        try {
-          const res = await fetch(`${URL}/cities/${paramObj.id}`);
-          const data = await res.json();
-          setCurrCity(data);
-        } catch (error) {
-          console.log(error);
-        }
+  useEffect(function () {
+    async function getCityData() {
+      try {
+        set_isLoading(true);
+        const res = await fetch(`${URL}/cities/${paramObj.id}`);
+        const data = await res.json();
+        setCurrCity(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        set_isLoading(false);
       }
+    }
 
-      if (paramObj.id) getCityData();
-    },
-    [paramObj.id, currCity]
-  );
+    if (paramObj.id) getCityData();
+  }, []);
 
   return (
     <div className={styles.divCity}>
-      <p>CITY NAME</p>
-      <p>
-        {currCity.emoji} {currCity.cityName}
-      </p>
-      <p>YOU WENT TO {currCity.cityName.toUpperCase()} ON</p>
-      <p>{formatDate(currCity.date)}</p>
-      <p>LEARN MORE</p>
-      <p>
-        <a>
-          <u>Check out {currCity.cityName} on Wikipedia &rarr;</u>
-        </a>
-      </p>
-      <button>&larr; BACK</button>
+      {isLoading && <p className={styles.gifSpinner}>LOADING...</p>}
+      {!isLoading && (
+        <>
+          <p className={styles.textCityName}>CITY NAME</p>
+          <p className={styles.textActualCityName}>
+            {currCity.emoji} {currCity.cityName}
+          </p>
+          <p className={styles.textYouWentTo}>
+            YOU WENT TO {`${currCity.cityName}`.toUpperCase()} ON
+          </p>
+          <p className={styles.textDate}>{formatDate(currCity.date)}</p>
+          <p className={styles.textYourNotes}>YOUR NOTES</p>
+          <p className={styles.textActualNotes}>{currCity.notes}</p>
+          <p className={styles.textLearnMore}>LEARN MORE</p>
+          <p className={styles.wikipediaLink}>
+            <a>
+              <u>Check out {currCity.cityName} on Wikipedia &rarr;</u>
+            </a>
+          </p>
+          <BackButton />
+        </>
+      )}
     </div>
   );
 }

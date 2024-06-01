@@ -17,6 +17,24 @@
   padding-left: 20px;
   cursor: pointer;
 }
+.currCity {
+  border-top: 2px solid #00c46a;
+  border-bottom: 2px solid #00c46a;
+  border-right: 2px solid #00c46a;
+
+  background-color: #495056;
+  height: 50px;
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 5px solid #00c46a;
+
+  display: grid;
+  grid-template-columns: 45px 1fr 150px 50px;
+
+  padding-left: 20px;
+  cursor: pointer;
+}
 .countryEmoji {
   font-size: 25px;
   margin-top: 5px;

@@ -5,10 +5,87 @@
   top: 20px;
   color: rgb(255, 255, 255);
   width: 95%;
-  height: 400px;
+  min-height: 300px;
+
   background-color: #42484d;
   border-radius: 8px;
+  padding: 30px;
+  position: relative;
 }
-.divCity p {
+
+.textCityName {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.596);
   margin: 0px;
+}
+.textActualCityName {
+  font-size: 25px;
+  margin: 0px;
+  margin-bottom: 30px;
+}
+.textYouWentTo {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.596);
+  letter-spacing: 1px;
+  margin: 0px;
+}
+.textDate {
+  font-size: 20px;
+  margin: 0px;
+  margin-bottom: 30px;
+}
+.textYourNotes {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.596);
+  letter-spacing: 1px;
+  margin: 0px;
+}
+.textActualNotes {
+  font-size: 20px;
+  margin: 0px;
+  margin-bottom: 30px;
+}
+.textLearnMore {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.596);
+  letter-spacing: 1px;
+  margin: 0px;
+}
+.wikipediaLink {
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(255, 179, 0, 0.686);
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin: 0px;
+  margin-bottom: 30px;
+}
+.wikipediaLink:hover {
+  color: rgba(255, 179, 0, 0.8);
+}
+.wikipediaLink:active {
+  color: rgba(255, 179, 0, 0.686);
+}
+
+.buttonBack {
+  font-size: 17px;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid white;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.buttonBack:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.gifSpinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
