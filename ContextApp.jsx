@@ -33,8 +33,6 @@ function ContextApp({ children }) {
   );
 
   async function uploadCityDetails(newCity) {
-    // console.log(newCity);
-
     try {
       set_isLoading(true);
       const res = await fetch(`${URL}/cities`, {
@@ -49,7 +47,22 @@ function ContextApp({ children }) {
       setCurrCity(data);
       set_citiesData((citiesData) => [...citiesData, newCity]);
     } catch (error) {
-      console.log(error);
+      console.log("Error in uploading city");
+    } finally {
+      set_isLoading(false);
+    }
+  }
+
+  async function deleteCity(cityID) {
+    try {
+      set_isLoading(true);
+      await fetch(`${URL}/cities/${cityID}`, {
+        method: "DELETE",
+      });
+
+      set_citiesData(citiesData.filter((val) => val.id !== cityID));
+    } catch (error) {
+      console.log("Error in deleting city");
     } finally {
       set_isLoading(false);
     }
@@ -64,6 +77,7 @@ function ContextApp({ children }) {
         currCity,
         setCurrCity,
         uploadCityDetails,
+        deleteCity,
       }}
     >
       {children}

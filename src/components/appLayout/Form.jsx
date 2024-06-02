@@ -90,13 +90,15 @@ export default function Form() {
     [visitDate, cityNotes]
   );
 
-  function handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault();
-    uploadCityDetails(cityDetailObj);
-    setCityName("");
-    setVisitDate("");
-    setCityNotes("");
-    navigate("/appLayout/cities");
+    await uploadCityDetails(cityDetailObj);
+    if (!isUploading) {
+      setCityName("");
+      setVisitDate("");
+      setCityNotes("");
+      navigate("/appLayout/cities");
+    }
   }
 
   if (!lat && !lng)
@@ -110,7 +112,14 @@ export default function Form() {
       {!errorState.errorCheck && (
         <form className={styles.divForm} onSubmit={(e) => handleFormSubmit(e)}>
           {(isLoadingCityData || isUploading) && (
-            <p className={styles.textLoading}>LOADING...</p>
+            <p className={styles.textLoading}>
+              {" "}
+              {isLoadingCityData
+                ? "LOADING..."
+                : isUploading
+                ? "UPLOADING..."
+                : ""}{" "}
+            </p>
           )}
           {!isLoadingCityData && !isUploading && (
             <>

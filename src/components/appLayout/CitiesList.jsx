@@ -18,8 +18,13 @@ function formatDate(inputDate) {
 }
 
 export default function CitiesList() {
-  const { citiesData, isLoading, currCity } = useContext(CitiesContext);
+  const { citiesData, isLoading, currCity, deleteCity } =
+    useContext(CitiesContext);
   // console.log(currCity);
+  function handleCrossClick(e, city) {
+    e.preventDefault();
+    deleteCity(city.id);
+  }
   return (
     <>
       {isLoading && <img className={styles.imgSpinner} src="Spinner.gif" />}
@@ -35,10 +40,19 @@ export default function CitiesList() {
                 }
                 to={`${val.id}?lat=${val.position.lat}&lng=${val.position.lng}`}
               >
-                <span className={styles.countryEmoji}>{val.emoji}</span>
+                <div className={styles.divCountryEmoji}>
+                  <span className={styles.countryEmoji}>{val.emoji}</span>
+                </div>
+
                 <h3 className={styles.cityName}>{val.cityName}</h3>
                 <time className={styles.visitDate}>{formatDate(val.date)}</time>
-                <button className={styles.closeButton}>&times;</button>
+
+                <button
+                  className={styles.closeButton}
+                  onClick={(e) => handleCrossClick(e, val)}
+                >
+                  <span style={{ marginLeft: "1px" }}>&times;</span>
+                </button>
               </Link>
             </li>
           ))}

@@ -3,7 +3,7 @@
     {
       "cityName": "Lisbon",
       "country": "Portugal",
-      "emoji": "🇵🇹",
+      "emoji": "PT",
       "date": "2027-10-31T15:59:59.138Z",
       "notes": "My favorite city so far!",
       "position": {
@@ -15,7 +15,7 @@
     {
       "cityName": "Madrid",
       "country": "Spain",
-      "emoji": "🇪🇸",
+      "emoji": "ES",
       "date": "2027-07-15T08:22:53.976Z",
       "notes": "",
       "position": {
@@ -27,7 +27,7 @@
     {
       "cityName": "Berlin",
       "country": "Germany",
-      "emoji": "🇩🇪",
+      "emoji": "DE",
       "date": "2027-02-12T09:24:11.863Z",
       "notes": "Amazing 😃",
       "position": {
@@ -37,52 +37,76 @@
       "id": "98443197"
     },
     {
-      "id": "7d04",
-      "cityName": "Isa Khel",
+      "id": "1ceb",
+      "cityName": "Duki",
       "country": "Pakistan",
       "emoji": "PK",
       "position": {
-        "lat": 32.6759144892329,
-        "lng": 71.31221035555674
+        "lat": 30.2957178962078,
+        "lng": 69.07041924437372
       },
-      "date": "Sun Jun 02 2024 12:06:18 GMT+0500 (Pakistan Standard Time)",
-      "notes": "isa good"
+      "date": "Sun Jun 02 2024 13:00:10 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Duki good"
     },
     {
-      "id": "504c",
-      "cityName": "Dera Ghazi Khan",
-      "country": "Pakistan",
-      "emoji": "PK",
+      "id": "8053",
+      "cityName": "Khatanga",
+      "country": "Russian Federation (the)",
+      "emoji": "RU",
       "position": {
-        "lat": 30.46684476389303,
-        "lng": 70.38916540182906
+        "lat": 73.42125558736366,
+        "lng": 101.20792441121318
       },
-      "date": "Sun Jun 02 2024 12:22:15 GMT+0500 (Pakistan Standard Time)",
-      "notes": "DG good"
+      "date": "Sun Jun 02 2024 14:31:16 GMT+0500 (Pakistan Standard Time)",
+      "notes": "khtat good"
     },
     {
-      "id": "b685",
-      "cityName": "Qila Saifullah",
-      "country": "Pakistan",
-      "emoji": "PK",
+      "id": "31f0",
+      "cityName": "Ulytau",
+      "country": "Kazakhstan",
+      "emoji": "KZ",
       "position": {
-        "lat": 30.712346199644625,
-        "lng": 68.60884557571431
+        "lat": 47.26069958965222,
+        "lng": 66.26083359388416
       },
-      "date": "Sun Jun 02 2024 12:25:40 GMT+0500 (Pakistan Standard Time)",
-      "notes": "Qila good"
+      "date": "Sun Jun 02 2024 14:31:32 GMT+0500 (Pakistan Standard Time)",
+      "notes": "ulu good"
     },
     {
-      "id": "6e08",
-      "cityName": "Sibi",
-      "country": "Pakistan",
-      "emoji": "PK",
+      "id": "eee0",
+      "cityName": "Yazdan Shahr",
+      "country": "Iran (Islamic Republic of)",
+      "emoji": "IR",
       "position": {
-        "lat": 29.34348656798994,
-        "lng": 68.10365649723741
+        "lat": 30.933661925422367,
+        "lng": 56.20263851778489
       },
-      "date": "Sun Jun 02 2024 12:26:03 GMT+0500 (Pakistan Standard Time)",
-      "notes": "Sibi good"
+      "date": "Sun Jun 02 2024 14:31:46 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Yazdan good"
+    },
+    {
+      "id": "e0ab",
+      "cityName": "Markaz al Waḩat ad Dakhilah",
+      "country": "Egypt",
+      "emoji": "EG",
+      "position": {
+        "lat": 25.77687106777423,
+        "lng": 29.529681612657125
+      },
+      "date": "Sun Jun 02 2024 14:34:49 GMT+0500 (Pakistan Standard Time)",
+      "notes": ""
+    },
+    {
+      "id": "55a1",
+      "cityName": "El Biod",
+      "country": "Algeria",
+      "emoji": "DZ",
+      "position": {
+        "lat": 33.67868386806327,
+        "lng": 0.060189475137453215
+      },
+      "date": "Sun Jun 02 2024 15:11:33 GMT+0500 (Pakistan Standard Time)",
+      "notes": "el good"
     }
   ]
 }

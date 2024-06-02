@@ -60,9 +60,9 @@ export default function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
-        {citiesData.map((val) => (
-          <Marker position={[val.position.lat, val.position.lng]} key={val.id}>
-            <Popup key={val.id}>
+        {citiesData.map((val, i) => (
+          <Marker position={[val.position.lat, val.position.lng]} key={i}>
+            <Popup>
               <span className={styles.countryEmoji}>{val.emoji}</span>
               <span className={styles.textCityName}>{val.cityName}</span>
             </Popup>
