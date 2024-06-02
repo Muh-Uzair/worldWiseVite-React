@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CitiesContext } from "../../../ContextApp";
+import { useNavigate } from "react-router-dom";
 
 // "https://api.bigdatacloud.net/data/reverse-gseocode-client?latitude=0&longitude=0"
 
@@ -31,6 +32,7 @@ export default function Form() {
   let [cityDetailObj, setCityDetailObj] = useState({});
   const { uploadCityDetails, isLoading: isUploading } =
     useContext(CitiesContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchCityData() {
@@ -60,8 +62,8 @@ export default function Form() {
           country: data.countryName,
           emoji: data.countryCode,
           position: {
-            lat,
-            lng,
+            lat: Number(lat),
+            lng: Number(lng),
           },
         });
       } catch (error) {
@@ -90,11 +92,11 @@ export default function Form() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-
     uploadCityDetails(cityDetailObj);
     setCityName("");
     setVisitDate("");
     setCityNotes("");
+    navigate("/appLayout/cities");
   }
 
   if (!lat && !lng)

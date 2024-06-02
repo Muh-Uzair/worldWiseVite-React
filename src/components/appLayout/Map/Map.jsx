@@ -6,7 +6,6 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-// import { useEffect, useState } from "react";
 import styles from "../Map/Map.module.css";
 import { CitiesContext } from "../../../../ContextApp";
 import { useContext, useEffect, useState } from "react";

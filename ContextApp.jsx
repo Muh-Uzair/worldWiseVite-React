@@ -13,21 +13,24 @@ function ContextApp({ children }) {
   const [isLoading, set_isLoading] = useState(false);
   const [currCity, setCurrCity] = useState({});
 
-  useEffect(function () {
-    async function fetchCitiesData() {
-      try {
-        set_isLoading(true);
-        const res = await fetch(`${URL}/cities`);
-        const data = await res.json();
-        set_citiesData(data);
-      } catch (err) {
-        console.log(err);
-      } finally {
-        set_isLoading(false);
+  useEffect(
+    function () {
+      async function fetchCitiesData() {
+        try {
+          set_isLoading(true);
+          const res = await fetch(`${URL}/cities`);
+          const data = await res.json();
+          set_citiesData(data);
+        } catch (err) {
+          console.log(err);
+        } finally {
+          set_isLoading(false);
+        }
       }
-    }
-    fetchCitiesData();
-  }, []);
+      fetchCitiesData();
+    },
+    [currCity]
+  );
 
   async function uploadCityDetails(newCity) {
     // console.log(newCity);
