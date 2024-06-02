@@ -49,64 +49,16 @@
       "notes": "Duki good"
     },
     {
-      "id": "8053",
-      "cityName": "Khatanga",
-      "country": "Russian Federation (the)",
-      "emoji": "RU",
+      "id": "112d",
+      "cityName": "Thal",
+      "country": "Pakistan",
+      "emoji": "PK",
       "position": {
-        "lat": 73.42125558736366,
-        "lng": 101.20792441121318
+        "lat": 33.3932606973661,
+        "lng": 70.52675197659836
       },
-      "date": "Sun Jun 02 2024 14:31:16 GMT+0500 (Pakistan Standard Time)",
-      "notes": "khtat good"
-    },
-    {
-      "id": "31f0",
-      "cityName": "Ulytau",
-      "country": "Kazakhstan",
-      "emoji": "KZ",
-      "position": {
-        "lat": 47.26069958965222,
-        "lng": 66.26083359388416
-      },
-      "date": "Sun Jun 02 2024 14:31:32 GMT+0500 (Pakistan Standard Time)",
-      "notes": "ulu good"
-    },
-    {
-      "id": "eee0",
-      "cityName": "Yazdan Shahr",
-      "country": "Iran (Islamic Republic of)",
-      "emoji": "IR",
-      "position": {
-        "lat": 30.933661925422367,
-        "lng": 56.20263851778489
-      },
-      "date": "Sun Jun 02 2024 14:31:46 GMT+0500 (Pakistan Standard Time)",
-      "notes": "Yazdan good"
-    },
-    {
-      "id": "e0ab",
-      "cityName": "Markaz al Waḩat ad Dakhilah",
-      "country": "Egypt",
-      "emoji": "EG",
-      "position": {
-        "lat": 25.77687106777423,
-        "lng": 29.529681612657125
-      },
-      "date": "Sun Jun 02 2024 14:34:49 GMT+0500 (Pakistan Standard Time)",
+      "date": "Sun Jun 02 2024 20:44:12 GMT+0500 (Pakistan Standard Time)",
       "notes": ""
-    },
-    {
-      "id": "55a1",
-      "cityName": "El Biod",
-      "country": "Algeria",
-      "emoji": "DZ",
-      "position": {
-        "lat": 33.67868386806327,
-        "lng": 0.060189475137453215
-      },
-      "date": "Sun Jun 02 2024 15:11:33 GMT+0500 (Pakistan Standard Time)",
-      "notes": "el good"
     }
   ]
 }

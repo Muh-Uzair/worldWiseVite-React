@@ -27,7 +27,6 @@ export default function CitiesList() {
   }
   return (
     <>
-      {isLoading && <img className={styles.imgSpinner} src="Spinner.gif" />}
       {!isLoading && (
         <ul className={styles.CitiesListUl}>
           {citiesData?.map((val, i) => (

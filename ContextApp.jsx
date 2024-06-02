@@ -8,6 +8,13 @@ ContextApp.propTypes = {
   children: PropTypes.object,
 };
 
+// const initialState = {
+//   citiesData: [],
+//   isLoading: false,
+//   currCity: {},
+// };
+
+///////////////////////////////////////////////////////////////////////
 function ContextApp({ children }) {
   const [citiesData, set_citiesData] = useState([]);
   const [isLoading, set_isLoading] = useState(false);
