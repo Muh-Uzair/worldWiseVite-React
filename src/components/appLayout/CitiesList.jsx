@@ -19,16 +19,19 @@ function formatDate(inputDate) {
 
 export default function CitiesList() {
   const { citiesData, isLoading, currCity } = useContext(CitiesContext);
+  // console.log(currCity);
   return (
     <>
       {isLoading && <img className={styles.imgSpinner} src="Spinner.gif" />}
       {!isLoading && (
         <ul className={styles.CitiesListUl}>
           {citiesData?.map((val, i) => (
-            <li key={i} className={currCity ? "curCity" : ""}>
+            <li key={i}>
               <Link
                 className={
-                  currCity.id === val.id ? styles.currCity : styles.CitiesListLi
+                  currCity.id === val.id
+                    ? styles.currCityClass
+                    : styles.CitiesListLi
                 }
                 to={`${val.id}?lat=${val.position.lat}&lng=${val.position.lng}`}
               >

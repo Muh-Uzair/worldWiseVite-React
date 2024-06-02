@@ -29,13 +29,13 @@ export default function Form() {
   });
   const [cityNotes, setCityNotes] = useState("");
   let [cityDetailObj, setCityDetailObj] = useState({});
-  const { uploadCityDetails } = useContext(CitiesContext);
+  const { uploadCityDetails, isLoading: isUploading } =
+    useContext(CitiesContext);
 
   useEffect(() => {
     async function fetchCityData() {
       try {
         setIsLoadingCityData(true);
-
         const res = await fetch(
           `${R_GEO_CODE_URL}?latitude=${lat}&longitude=${lng}`
         );
@@ -59,8 +59,6 @@ export default function Form() {
           cityName: data.city,
           country: data.countryName,
           emoji: data.countryCode,
-          date: visitDate,
-          notes: cityNotes,
           position: {
             lat,
             lng,
@@ -77,11 +75,26 @@ export default function Form() {
       }
     }
     if (lat && lng) fetchCityData();
-  }, [lat, lng, cityNotes, visitDate]);
+  }, [lat, lng]);
+
+  useEffect(
+    function () {
+      setCityDetailObj((cityDetailObj) => ({
+        ...cityDetailObj,
+        date: visitDate,
+        notes: cityNotes,
+      }));
+    },
+    [visitDate, cityNotes]
+  );
 
   function handleFormSubmit(e) {
     e.preventDefault();
+
     uploadCityDetails(cityDetailObj);
+    setCityName("");
+    setVisitDate("");
+    setCityNotes("");
   }
 
   if (!lat && !lng)
@@ -94,10 +107,10 @@ export default function Form() {
       )}
       {!errorState.errorCheck && (
         <form className={styles.divForm} onSubmit={(e) => handleFormSubmit(e)}>
-          {isLoadingCityData && (
+          {(isLoadingCityData || isUploading) && (
             <p className={styles.textLoading}>LOADING...</p>
           )}
-          {!isLoadingCityData && (
+          {!isLoadingCityData && !isUploading && (
             <>
               <div>
                 <p className={styles.textCityName}>City name</p>
@@ -138,7 +151,9 @@ export default function Form() {
               </div>
 
               <div className={styles.divAddBackButtons}>
-                <button className={styles.buttonAdd}>ADD</button>
+                <button type="submit" className={styles.buttonAdd}>
+                  ADD
+                </button>
                 <BackButton />
               </div>
             </>

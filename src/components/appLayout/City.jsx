@@ -41,22 +41,27 @@ export default function City() {
     useContext(CitiesContext);
   const paramObj = useParams();
 
-  useEffect(function () {
-    async function getCityData() {
-      try {
-        set_isLoading(true);
-        const res = await fetch(`${URL}/cities/${paramObj.id}`);
-        const data = await res.json();
-        setCurrCity(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        set_isLoading(false);
-      }
-    }
+  useEffect(
+    function () {
+      async function getCityData() {
+        try {
+          set_isLoading(true);
 
-    if (paramObj.id) getCityData();
-  }, []);
+          const res = await fetch(`${URL}/cities/${paramObj.id}`);
+          const data = await res.json();
+
+          setCurrCity(data);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          set_isLoading(false);
+        }
+      }
+
+      if (paramObj.id) getCityData();
+    },
+    [paramObj.id]
+  );
 
   return (
     <div className={styles.divCity}>

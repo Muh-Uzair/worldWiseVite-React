@@ -35,6 +35,42 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
+    },
+    {
+      "id": "998e",
+      "cityName": "Phelawagh",
+      "country": "Pakistan",
+      "emoji": "PK",
+      "position": {
+        "lat": "29.359910410746608",
+        "lng": "69.42308521196689"
+      },
+      "date": "Sun Jun 02 2024 10:28:06 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Phel good"
+    },
+    {
+      "id": "d79f",
+      "cityName": "Zehri",
+      "country": "Pakistan",
+      "emoji": "PK",
+      "position": {
+        "lat": "28.571677535436326",
+        "lng": "66.63135770500989"
+      },
+      "date": "Sun Jun 02 2024 10:28:18 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Zehri good"
+    },
+    {
+      "id": "ba55",
+      "cityName": "Khuzdar",
+      "country": "Pakistan",
+      "emoji": "PK",
+      "position": {
+        "lat": "27.563500013858885",
+        "lng": "67.07164696267071"
+      },
+      "date": "Sun Jun 02 2024 10:28:30 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Khuzdar"
     }
   ]
 }

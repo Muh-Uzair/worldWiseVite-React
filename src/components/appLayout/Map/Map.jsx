@@ -16,7 +16,7 @@ import { useGeolocation } from "../../../../hooks/useGeolocation";
 import { useTakeLatLngParams } from "../../../../hooks/useTakeLatLngParams";
 
 export default function Map() {
-  const { citiesData } = useContext(CitiesContext);
+  const { citiesData, currCity } = useContext(CitiesContext);
   const [mapPosition, setMapPosition] = useState([80, 92]);
   const {
     isLoading: isLoadingGeoLocation,
@@ -55,6 +55,7 @@ export default function Map() {
         center={mapPosition}
         zoom={6}
         scrollWheelZoom={true}
+        key={currCity.id}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -62,7 +63,7 @@ export default function Map() {
         />
         {citiesData.map((val) => (
           <Marker position={[val.position.lat, val.position.lng]} key={val.id}>
-            <Popup>
+            <Popup key={val.id}>
               <span className={styles.countryEmoji}>{val.emoji}</span>
               <span className={styles.textCityName}>{val.cityName}</span>
             </Popup>

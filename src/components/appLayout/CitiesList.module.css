@@ -17,7 +17,7 @@
   padding-left: 20px;
   cursor: pointer;
 }
-.currCity {
+.currCityClass {
   border-top: 2px solid #00c46a;
   border-bottom: 2px solid #00c46a;
   border-right: 2px solid #00c46a;

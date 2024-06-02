@@ -30,7 +30,10 @@ function ContextApp({ children }) {
   }, []);
 
   async function uploadCityDetails(newCity) {
+    // console.log(newCity);
+
     try {
+      set_isLoading(true);
       const res = await fetch(`${URL}/cities`, {
         method: "POST",
         body: JSON.stringify(newCity),
@@ -39,11 +42,13 @@ function ContextApp({ children }) {
         },
       });
       const data = await res.json();
-      console.log(data);
-      // set_citiesData((citiesData) => ({ ...citiesData, newCity }));
-      // console.log(citiesData);
+
+      setCurrCity(data);
+      set_citiesData((citiesData) => [...citiesData, newCity]);
     } catch (error) {
       console.log(error);
+    } finally {
+      set_isLoading(false);
     }
   }
 
