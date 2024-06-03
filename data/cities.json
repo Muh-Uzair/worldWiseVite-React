@@ -71,6 +71,18 @@
       },
       "date": "Mon Jun 03 2024 12:31:03 GMT+0500 (Pakistan Standard Time)",
       "notes": "Muzzaffar good"
+    },
+    {
+      "id": "1f98",
+      "cityName": "Phalia",
+      "country": "Pakistan",
+      "emoji": "PK",
+      "position": {
+        "lat": 32.49426194725263,
+        "lng": 73.73677161686338
+      },
+      "date": "Mon Jun 03 2024 20:55:57 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Phalia good"
     }
   ]
 }

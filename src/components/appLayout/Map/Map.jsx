@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useGeolocation } from "../../../../hooks/useGeolocation";
 import { useTakeLatLngParams } from "../../../../hooks/useTakeLatLngParams";
+import { AuthnContextC } from "../../../../AuthnContext";
 
 export default function Map() {
   const { citiesData, currCity } = useContext(CitiesContext);
@@ -22,8 +23,8 @@ export default function Map() {
     position: geoLocationPosition,
     getPosition,
   } = useGeolocation();
-
   const [lat, lng] = useTakeLatLngParams();
+  const { user } = useContext(AuthnContextC);
 
   useEffect(
     function () {
@@ -44,6 +45,17 @@ export default function Map() {
 
   return (
     <div className={styles.divMap}>
+      <div className={styles.divLogout}>
+        <div className={styles.divImg}>
+          <img className={styles.imgPerson} src={`${user.avatar}`} />
+        </div>
+        <div className={styles.divWelcome}>
+          <span>Welcome, {user.name}</span>
+        </div>
+        <div className={styles.divLogoutInner}>
+          <button className={styles.btnLogout}>LOGOUT</button>
+        </div>
+      </div>
       {!geoLocationPosition && (
         <button className={styles.buttonUseYourPosition} onClick={getPosition}>
           {isLoadingGeoLocation ? "LOADING..." : "USE YOUR POSITION"}

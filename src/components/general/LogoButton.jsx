@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 LogoButton.propTypes = {
   linkTo: PropTypes.string.isRequired,
@@ -7,16 +7,16 @@ LogoButton.propTypes = {
 
 export default function LogoButton({ linkTo }) {
   return (
-    <Link to={linkTo}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Link to={linkTo}>
         <img style={{ width: "220px" }} src="logo.png" />
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
