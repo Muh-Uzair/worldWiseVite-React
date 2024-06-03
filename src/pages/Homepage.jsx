@@ -10,7 +10,7 @@ export default function Homepage() {
   const { isAuthenticated } = useContext(AuthnContextC);
   return (
     <main className="mainBox">
-      <img className={styles.imgHomepage} src="bg.jpg" alt="img" />
+      <img className={styles.imgHomepage} src="/bg.jpg" alt="img" />
 
       <div
         className={styles.divHomepageModal}

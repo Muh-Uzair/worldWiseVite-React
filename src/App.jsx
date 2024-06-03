@@ -11,6 +11,7 @@ import City from "./components/appLayout/City";
 import Form from "./components/appLayout/Form";
 import { ContextApp } from "../ContextApp";
 import { AuthnContext } from "../AuthnContext";
+import SecuredRoutePg from "./pages/SecuredRoutePg";
 
 export default function App() {
   return (
@@ -19,7 +20,14 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="appLayout" element={<AppLayout />}>
+            <Route
+              path="appLayout"
+              element={
+                <SecuredRoutePg>
+                  <AppLayout />
+                </SecuredRoutePg>
+              }
+            >
               <Route index element={<Navigate replace to="cities" />} />
               <Route path="cities" element={<CitiesList />}></Route>
 

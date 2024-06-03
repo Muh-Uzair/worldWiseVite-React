@@ -15,7 +15,7 @@ export default function LogoButton({ linkTo }) {
       }}
     >
       <Link to={linkTo}>
-        <img style={{ width: "220px" }} src="logo.png" />
+        <img style={{ width: "220px" }} src="/logo.png" />
       </Link>
     </div>
   );
