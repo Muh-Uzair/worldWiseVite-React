@@ -49,16 +49,28 @@
       "notes": "Duki good"
     },
     {
-      "id": "112d",
-      "cityName": "Thal",
+      "id": "10aa",
+      "cityName": "Wazir Tehsil",
       "country": "Pakistan",
       "emoji": "PK",
       "position": {
-        "lat": 33.3932606973661,
-        "lng": 70.52675197659836
+        "lat": 32.86085934992425,
+        "lng": 70.49860777276002
       },
-      "date": "Sun Jun 02 2024 20:44:12 GMT+0500 (Pakistan Standard Time)",
-      "notes": ""
+      "date": "Mon Jun 03 2024 12:30:53 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Wazir good"
+    },
+    {
+      "id": "f3fa",
+      "cityName": "Muzaffargarh",
+      "country": "Pakistan",
+      "emoji": "PK",
+      "position": {
+        "lat": 30.239171386562052,
+        "lng": 71.24653128185268
+      },
+      "date": "Mon Jun 03 2024 12:31:03 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Muzzaffar good"
     }
   ]
 }

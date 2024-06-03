@@ -115,3 +115,8 @@
   width: 90%;
   outline: none;
 }
+.textErrorMsg {
+  width: 100%;
+  overflow-y: none;
+  font-size: 10px;
+}

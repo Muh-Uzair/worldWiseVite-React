@@ -8,7 +8,15 @@ LogoButton.propTypes = {
 export default function LogoButton({ linkTo }) {
   return (
     <Link to={linkTo}>
-      <img style={{ width: "220px" }} src="logo.png" />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img style={{ width: "220px" }} src="logo.png" />
+      </div>
     </Link>
   );
 }

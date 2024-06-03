@@ -12,13 +12,16 @@ const styles_obj = {
 };
 
 LogInButton.propTypes = {
-  navLinkTo: PropTypes.string.isRequired,
+  navLinkTo: PropTypes.string,
+  typeBtn: PropTypes.string,
 };
 
-export default function LogInButton({ navLinkTo }) {
+export default function LogInButton({ navLinkTo, typeBtn }) {
   return (
     <NavLink to={navLinkTo}>
-      <button style={styles_obj}>LOG IN</button>
+      <button style={styles_obj} type={`${typeBtn}`}>
+        LOG IN
+      </button>
     </NavLink>
   );
 }

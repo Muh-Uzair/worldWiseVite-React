@@ -10,28 +10,31 @@ import CountryList from "./components/appLayout/CountryList";
 import City from "./components/appLayout/City";
 import Form from "./components/appLayout/Form";
 import { ContextApp } from "../ContextApp";
+import { AuthnContext } from "../AuthnContext";
 
 export default function App() {
   return (
-    <ContextApp>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="appLayout" element={<AppLayout />}>
-            <Route index element={<Navigate replace to="cities" />} />
-            <Route path="cities" element={<CitiesList />}></Route>
+    <AuthnContext>
+      <ContextApp>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="appLayout" element={<AppLayout />}>
+              <Route index element={<Navigate replace to="cities" />} />
+              <Route path="cities" element={<CitiesList />}></Route>
 
-            <Route path="cities/:id" element={<City />} />
+              <Route path="cities/:id" element={<City />} />
 
-            <Route path="countries" element={<CountryList />} />
+              <Route path="countries" element={<CountryList />} />
 
-            <Route path="form" element={<Form />} />
-          </Route>
-          <Route path="Pricing" element={<Pricing />} />
-          <Route path="Product" element={<Product />} />
-          <Route path="LogIn" element={<LogIn />} />
-        </Routes>
-      </BrowserRouter>
-    </ContextApp>
+              <Route path="form" element={<Form />} />
+            </Route>
+            <Route path="Pricing" element={<Pricing />} />
+            <Route path="Product" element={<Product />} />
+            <Route path="LogIn" element={<LogIn />} />
+          </Routes>
+        </BrowserRouter>
+      </ContextApp>
+    </AuthnContext>
   );
 }

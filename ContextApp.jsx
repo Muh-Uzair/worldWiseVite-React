@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import PropTypes from "prop-types";
 import { URL } from "./api-related/apiRelated";
 
@@ -8,30 +8,72 @@ ContextApp.propTypes = {
   children: PropTypes.object,
 };
 
-// const initialState = {
-//   citiesData: [],
-//   isLoading: false,
-//   currCity: {},
-// };
+const initialState = {
+  citiesData: [],
+  isLoading: false,
+  currCity: {},
+  errorMsg: "",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case `loading/city`:
+      return { ...state, isLoading: true };
+
+    case "arrived/cityData":
+      return { ...state, citiesData: action.payload, isLoading: false };
+
+    case "rejected/error":
+      return {
+        ...state,
+        isLoading: false,
+        errorMsg: action.payload,
+      };
+
+    case "uploadCitySuccessful":
+      return {
+        ...state,
+        isLoading: true,
+        currCity: action.payload1,
+        citiesData: [...state.citiesData, action.payload2],
+      };
+
+    case "deleteCitySuccess":
+      return {
+        ...state,
+        isLoading: false,
+        citiesData: state.citiesData.filter((val) => val.id !== action.payload),
+      };
+    case "loadCitySuccess":
+      return {
+        ...state,
+        currCity: action.payload,
+      };
+
+    default:
+      throw new Error(`Unknown action performed`);
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////
 function ContextApp({ children }) {
-  const [citiesData, set_citiesData] = useState([]);
-  const [isLoading, set_isLoading] = useState(false);
-  const [currCity, setCurrCity] = useState({});
-
+  const [{ citiesData, isLoading, currCity }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
   useEffect(
     function () {
       async function fetchCitiesData() {
         try {
-          set_isLoading(true);
+          dispatch({ type: "loading/city" });
           const res = await fetch(`${URL}/cities`);
           const data = await res.json();
-          set_citiesData(data);
+          dispatch({ type: "arrived/cityData", payload: data });
         } catch (err) {
-          console.log(err);
-        } finally {
-          set_isLoading(false);
+          dispatch({
+            type: "rejected/error",
+            payload: "Unable to load cities",
+          });
         }
       }
       fetchCitiesData();
@@ -41,7 +83,7 @@ function ContextApp({ children }) {
 
   async function uploadCityDetails(newCity) {
     try {
-      set_isLoading(true);
+      dispatch({ type: "loading/city" });
       const res = await fetch(`${URL}/cities`, {
         method: "POST",
         body: JSON.stringify(newCity),
@@ -51,27 +93,47 @@ function ContextApp({ children }) {
       });
       const data = await res.json();
 
-      setCurrCity(data);
-      set_citiesData((citiesData) => [...citiesData, newCity]);
+      dispatch({
+        type: "uploadCitySuccessful",
+        payload1: data,
+        payload2: newCity,
+      });
     } catch (error) {
-      console.log("Error in uploading city");
-    } finally {
-      set_isLoading(false);
+      dispatch({
+        type: "rejected/error",
+        payload: "Unable to upload city",
+      });
     }
   }
 
   async function deleteCity(cityID) {
     try {
-      set_isLoading(true);
+      dispatch({ type: "loading/city" });
       await fetch(`${URL}/cities/${cityID}`, {
         method: "DELETE",
       });
 
-      set_citiesData(citiesData.filter((val) => val.id !== cityID));
+      dispatch({ type: "deleteCitySuccess", payload: cityID });
     } catch (error) {
-      console.log("Error in deleting city");
-    } finally {
-      set_isLoading(false);
+      dispatch({
+        type: "rejected/error",
+        payload: "Unable to delete city",
+      });
+    }
+  }
+
+  async function getCityData(paramObjID) {
+    if (paramObjID === currCity.id) return;
+    try {
+      dispatch({ type: "loading/city" });
+      const res = await fetch(`${URL}/cities/${paramObjID}`);
+      const data = await res.json();
+      dispatch({ type: "loadCitySuccess", payload: data });
+    } catch (error) {
+      dispatch({
+        type: "rejected/error",
+        payload: "Unable to load city information",
+      });
     }
   }
 
@@ -80,11 +142,10 @@ function ContextApp({ children }) {
       value={{
         citiesData,
         isLoading,
-        set_isLoading,
         currCity,
-        setCurrCity,
         uploadCityDetails,
         deleteCity,
+        getCityData,
       }}
     >
       {children}

@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
-import { useContext, useEffect, useState } from "react";
-import { URL } from "../../../api-related/apiRelated";
+import { useContext, useEffect } from "react";
 import { CitiesContext } from "../../../ContextApp";
 import BackButton from "../general/BackButton";
 
@@ -37,35 +36,20 @@ function formatDate(timeSt) {
 }
 
 export default function City() {
-  const { currCity, setCurrCity } = useContext(CitiesContext);
+  const { getCityData, isLoading, currCity } = useContext(CitiesContext);
   const paramObj = useParams();
-  const [isLoadingCity, setIsLoadingCity] = useState(false);
 
   useEffect(
     function () {
-      async function getCityData() {
-        try {
-          setIsLoadingCity(true);
-          const res = await fetch(`${URL}/cities/${paramObj.id}`);
-          const data = await res.json();
-
-          setCurrCity(data);
-        } catch (error) {
-          alert(`Can not fetch city information`);
-        } finally {
-          setIsLoadingCity(false);
-        }
-      }
-
-      if (paramObj.id) getCityData();
+      if (paramObj.id) getCityData(paramObj.id);
     },
     [paramObj.id]
   );
 
   return (
     <div className={styles.divCity}>
-      {isLoadingCity && <span className={styles.textLoading}>LOADING...</span>}
-      {!isLoadingCity && (
+      {isLoading && <span className={styles.textLoading}>LOADING...</span>}
+      {!isLoading && (
         <>
           <p className={styles.textCityName}>CITY NAME</p>
           <p className={styles.textActualCityName}>
