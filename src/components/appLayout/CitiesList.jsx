@@ -50,7 +50,7 @@ export default function CitiesList() {
                   className={styles.closeButton}
                   onClick={(e) => handleCrossClick(e, val)}
                 >
-                  <span style={{ marginLeft: "1px", marginBottom: "1px" }}>
+                  <span style={{ marginRight: "1 px", marginBottom: "1px" }}>
                     &times;
                   </span>
                 </button>

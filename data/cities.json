@@ -73,16 +73,28 @@
       "notes": "Muzzaffar good"
     },
     {
-      "id": "1f98",
-      "cityName": "Phalia",
-      "country": "Pakistan",
-      "emoji": "PK",
+      "id": "7e1c",
+      "cityName": "Sevrey",
+      "country": "Mongolia",
+      "emoji": "MN",
       "position": {
-        "lat": 32.49426194725263,
-        "lng": 73.73677161686338
+        "lat": 43.60521703188356,
+        "lng": 102.64459767616155
       },
-      "date": "Mon Jun 03 2024 20:55:57 GMT+0500 (Pakistan Standard Time)",
-      "notes": "Phalia good"
+      "date": "Mon Jun 03 2024 23:06:28 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Sevrey good"
+    },
+    {
+      "id": "ce01",
+      "cityName": "Sakarchage",
+      "country": "Turkmenistan",
+      "emoji": "TM",
+      "position": {
+        "lat": 37.60168035702182,
+        "lng": 60.88621016960053
+      },
+      "date": "Mon Jun 03 2024 23:10:29 GMT+0500 (Pakistan Standard Time)",
+      "notes": "Sakar good"
     }
   ]
 }

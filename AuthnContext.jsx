@@ -24,6 +24,13 @@ function reducer(state, action) {
         isAuthenticated: false,
         logInStatus: "errorInLogIn",
       };
+    case "logOut":
+      return {
+        ...state,
+        user: null,
+        isAuthenticated: false,
+        logInStatus: "logOut",
+      };
     default:
       throw new Error("Unknown action");
   }
@@ -57,6 +64,11 @@ function AuthnContext({ children }) {
       dispatch({ type: "logInFailed" });
     }
   }
+
+  function logOut() {
+    dispatch({ type: "logOut" });
+  }
+
   return (
     <AuthnContextC.Provider
       value={{
@@ -64,6 +76,7 @@ function AuthnContext({ children }) {
         isAuthenticated,
         user,
         logInStatus,
+        logOut,
       }}
     >
       {children}
