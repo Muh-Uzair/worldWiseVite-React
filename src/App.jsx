@@ -26,6 +26,8 @@ const PageNotFoundCMP = lazy(() =>
   import("./components/PageNotFound/PageNotFoundCMP")
 );
 
+console.log(`email : u | password : z`);
+
 export default function App() {
   return (
     <AuthnContext>
